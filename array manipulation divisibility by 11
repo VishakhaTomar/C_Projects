@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdbool.h>
+#include<malloc.h>
+#include<math.h>
+#include<stdlib.h>
+
+char* solve (int* A, int N ) {
+
+    int first, num1 = 0, num2 = 0, x = (N / 2) - 1, y=(N / 2) - 1;
+    printf("x is %d", x);
+    for (int i = 0; i < N / 2; i++)
+    {
+        first = A[i];                                  // getting the first part of the no
+        while (first >= 10)
+        {
+            first = first / 10;
+        }
+        num1 = num1 + (int)pow(10.0, (double)x) * first;
+        x--;
+    }
+
+    for (int i = (N / 2); i < N; i++)
+    {
+        num2 = num2 + (int)pow(10.0, (double)y) * (A[i] % 10);     // getting second part of the no
+        ///printf("last no is : %d\n", num2);
+        y--;
+    }
+
+    int finalno;
+    finalno= num*(int)pow(10.0, (double)N/2) + a; 
+    printf("final no is :%d, num: %d, a: %d",finalno, num, a);
+    if (finalno % 11==0)
+        return "OUI";
+    else return "NON";
+}
+
+int main() {
+    int N;
+    scanf("%d", &N);
+    int i;
+    int *A=malloc(N*sizeof(int));
+    for(i=0; i<N; i++)
+    	scanf("%d", &A[i]);
+    char* out_ = solve(A,N);
+    printf("%s", out_);
+    char e; 
+    scanf("%c", &e);
+    return 0; 
+}
